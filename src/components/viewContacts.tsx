@@ -9,8 +9,8 @@ export function ViewContacts(): JSX.Element {
     const [contacts, setContacts] = useState<Contact[]>(CONTACTS);
 
     return (
-        <div>
-            <Table striped bordered hover>
+        <div className="contactTable">
+            <Table striped bordered hover responsive="sm">
                 <thead>
                     <tr>
                         <th>Industry</th>
@@ -21,7 +21,7 @@ export function ViewContacts(): JSX.Element {
                         <th>Email</th>
                         <th>City</th>
                         <th>State</th>
-                        <th>Address</th>
+                        {/*<th>Address</th>*/}
                     </tr>
                 </thead>
                 <tbody>
@@ -35,7 +35,7 @@ export function ViewContacts(): JSX.Element {
                             <td>{contact.email}</td>
                             <td>{contact.city}</td>
                             <td>{contact.state}</td>
-                            <td>{contact.address}{", "}{contact.city}{", "}{contact.state}</td>
+                            {/*<td>{contact.address}{", "}{contact.city}{", "}{contact.state}</td>*/}
                         </tr>
                         )
                     )}
