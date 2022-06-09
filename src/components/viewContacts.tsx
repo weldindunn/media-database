@@ -87,7 +87,7 @@ export function ViewContacts(): JSX.Element {
                             <td>{contact.state}</td>
                             <td>
                                 <Button onClick={openModal}>Edit</Button>
-                                <EditContact isEditing={isEditing} closeModal={closeModal}></EditContact>
+                                <EditContact isEditing={isEditing} closeModal={closeModal} contact={contact}></EditContact>
                             </td>
                             {/*<td>{contact.address}{", "}{contact.city}{", "}{contact.state}</td>*/}
                         </tr>
