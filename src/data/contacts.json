@@ -1,0 +1,38 @@
+[
+    {
+        "id": 1,
+        "name": "Weldin Dunn",
+        "department": "Public Relations and Marketing",
+        "organization": "Delaware Electric Cooperative",
+        "industry": "Energy",
+        "phone_number": "302-349-3176",
+        "email": "wdunn@delaware.coop",
+        "address": "14198 Sussex Hwy",
+        "city": "Greenwood",
+        "state": "Delaware"
+    },
+    {
+        "id": 2,
+        "name": "Ben Galvacky",
+        "department": "IT",
+        "organization": "Delaware Electric Cooperative",
+        "industry": "Energy",
+        "phone_number": "302-349-3158",
+        "email": "bgalvacky@delaware.coop",
+        "address": "14198 Sussex Hwy",
+        "city": "Greenwood",
+        "state": "Delaware"
+    },
+    {
+        "id": 3,
+        "name": "Joe Smith",
+        "department": "Burger Flippin'",
+        "organization": "McDonald's",
+        "industry": "Food Service",
+        "phone_number": "562-622-9248",
+        "email": "",
+        "address": "10207 Lakewood Boulevard",
+        "city": "Downey",
+        "state": "California"
+    }
+]
