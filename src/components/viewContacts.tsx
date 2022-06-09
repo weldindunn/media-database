@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Form, Table, Button } from "react-bootstrap";
 import { Contact } from "../interfaces/contact";
 import contacts from "../data/contacts.json";
+import { EditContact } from "./editContact";
 
 const CONTACTS = contacts.map((contact): Contact => ({...contact}));
 
@@ -16,6 +17,16 @@ export function ViewContacts(): JSX.Element {
     const [email, setEmail] = useState<string>("");
     const [city, setCity] = useState<string>("");
     const [state, setState] = useState<string>("");
+
+    const [isEditing, changeEditing] = useState<boolean>(false);
+
+    function openModal(): void {
+        changeEditing(true);
+    }
+
+    function closeModal(): void {
+        changeEditing(false);
+    }
 
     function save(): void {
         setContacts(
@@ -75,7 +86,8 @@ export function ViewContacts(): JSX.Element {
                             <td>{contact.city}</td>
                             <td>{contact.state}</td>
                             <td>
-                                <Button>Edit</Button>
+                                <Button onClick={openModal}>Edit</Button>
+                                <EditContact isEditing={isEditing} closeModal={closeModal}></EditContact>
                             </td>
                             {/*<td>{contact.address}{", "}{contact.city}{", "}{contact.state}</td>*/}
                         </tr>
