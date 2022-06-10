@@ -1,29 +1,78 @@
 import React, { useState } from "react";
-import { Form, Modal, Col, Row } from "react-bootstrap";
+import { Form, Modal, Col, Row, Button } from "react-bootstrap";
 import  { Contact } from "../interfaces/contact";
 
 export function EditContact({
     isEditing,
+    openModal,
     closeModal,
-    contact
+    contact,
+    contacts,
+    setContacts
 
 }: {
     isEditing: boolean;
+    openModal: () => void;
     closeModal: () => void;
-    contact: Contact
+    contact: Contact;
+    contacts: Contact[];
+    setContacts: (contacts: Contact[]) => void;
 }): JSX.Element {
 
-    const [industry, setIndustry] = useState<string>("");
-    const [organization, setOrganization] = useState<string>("");
-    const [department, setDepartment] = useState<string>("");
-    const [name, setName] = useState<string>("");
-    const [phoneNumber, setPhoneNumber] = useState<string>("");
-    const [email, setEmail] = useState<string>("");
-    const [city, setCity] = useState<string>("");
-    const [state, setState] = useState<string>("");
+    const [industry, setIndustry] = useState<string>(contact.industry);
+    const [organization, setOrganization] = useState<string>(contact.organization);
+    const [department, setDepartment] = useState<string>(contact.department);
+    const [name, setName] = useState<string>(contact.name);
+    const [phoneNumber, setPhoneNumber] = useState<string>(contact.phone_number);
+    const [email, setEmail] = useState<string>(contact.email);
+    const [city, setCity] = useState<string>(contact.city);
+    const [state, setState] = useState<string>(contact.state);
+
+    function save(): void {
+        setContacts(contacts.map((targetContact: Contact): Contact => 
+            targetContact.id === contact.id ? {
+                id: contact.id,
+                industry: industry,
+                organization: organization,
+                department: department,
+                name: name,
+                phone_number: phoneNumber,
+                email: email,
+                address: "",
+                city: city,
+                state: state
+            } : targetContact)
+        );
+        closeModal();
+    }
+
+    function cancel(): void {
+        setIndustry(contact.industry);
+        setOrganization(contact.organization);
+        setDepartment(contact.department);
+        setName(contact.name);
+        setPhoneNumber(contact.phone_number);
+        setEmail(contact.email);
+        setCity(contact.city);
+        setState(contact.state);
+        closeModal();
+    }
+
+    function reset(): void {
+        setIndustry("");
+        setOrganization("");
+        setDepartment("");
+        setName("");
+        setPhoneNumber("");
+        setEmail("");
+        setCity("");
+        setState("");
+        closeModal();
+    }
 
     return (
         <div>
+            <Button onClick={openModal}>Edit</Button>
             <Modal
                 show={isEditing}
                 onHide={closeModal}
@@ -31,6 +80,7 @@ export function EditContact({
             >
                 <Modal.Header>
                     <Modal.Title>Edit Contact</Modal.Title>
+                    {contact.id}
                 </Modal.Header>
                 <Modal.Body>
                     {/* Industry */}
@@ -44,7 +94,7 @@ export function EditContact({
                                 onChange={(
                                     event: React.ChangeEvent<HTMLInputElement>
                                     ) => setIndustry(event.target.value)}
-                                placeholder={contact.industry}
+                                placeholder={"Enter Industry"}
                             />
                         </Col>
                     </Form.Group>
@@ -59,7 +109,7 @@ export function EditContact({
                                 onChange={(
                                     event: React.ChangeEvent<HTMLInputElement>
                                     ) => setOrganization(event.target.value)}
-                                placeholder={contact.organization}
+                                placeholder={"Enter Organization"}
                             />
                         </Col>
                     </Form.Group>
@@ -74,7 +124,7 @@ export function EditContact({
                                 onChange={(
                                     event: React.ChangeEvent<HTMLInputElement>
                                     ) => setDepartment(event.target.value)}
-                                placeholder={contact.department}
+                                placeholder={"Enter Department"}
                             />
                         </Col>
                     </Form.Group>
@@ -89,7 +139,7 @@ export function EditContact({
                                 onChange={(
                                     event: React.ChangeEvent<HTMLInputElement>
                                     ) => setName(event.target.value)}
-                                placeholder={contact.name}
+                                placeholder={"Enter Name"}
                             />
                         </Col>
                     </Form.Group>
@@ -104,7 +154,7 @@ export function EditContact({
                                 onChange={(
                                     event: React.ChangeEvent<HTMLInputElement>
                                     ) => setPhoneNumber(event.target.value)}
-                                placeholder={contact.phone_number}
+                                placeholder={"Enter Phone Number"}
                             />
                         </Col>
                     </Form.Group>
@@ -119,7 +169,7 @@ export function EditContact({
                                 onChange={(
                                     event: React.ChangeEvent<HTMLInputElement>
                                     ) => setEmail(event.target.value)}
-                                placeholder={contact.email}
+                                placeholder={"Enter Email"}
                             />
                         </Col>
                     </Form.Group>
@@ -134,7 +184,7 @@ export function EditContact({
                                 onChange={(
                                     event: React.ChangeEvent<HTMLInputElement>
                                     ) => setCity(event.target.value)}
-                                placeholder={contact.city}
+                                placeholder={"Enter City"}
                             />
                         </Col>
                     </Form.Group>
@@ -149,13 +199,17 @@ export function EditContact({
                                 onChange={(
                                     event: React.ChangeEvent<HTMLInputElement>
                                     ) => setState(event.target.value)}
-                                placeholder={contact.state}
+                                placeholder={"Enter State"}
                             />
                         </Col>
                     </Form.Group>
                 </Modal.Body>
                 <Modal.Footer>
+                    {/* Save Button */}
+                    <Button onClick={save} variant="success">Save</Button>
 
+                    {/* Cancel Button */}
+                    <Button onClick={cancel} variant="warning">Cancel</Button>
                 </Modal.Footer>
             </Modal>
         </div>

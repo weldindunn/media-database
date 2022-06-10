@@ -42,7 +42,7 @@ export function ViewContacts(): JSX.Element {
                 city: city,
                 state: state
             }]
-        )
+        );
         reset();
     }
 
@@ -86,14 +86,20 @@ export function ViewContacts(): JSX.Element {
                             <td>{contact.city}</td>
                             <td>{contact.state}</td>
                             <td>
-                                <Button onClick={openModal}>Edit</Button>
-                                <EditContact isEditing={isEditing} closeModal={closeModal} contact={contact}></EditContact>
+                                <EditContact
+                                    isEditing={isEditing}
+                                    openModal={openModal}
+                                    closeModal={closeModal}
+                                    contact={contact}
+                                    contacts={contacts}
+                                    setContacts={setContacts}
+                                ></EditContact>
                             </td>
                             {/*<td>{contact.address}{", "}{contact.city}{", "}{contact.state}</td>*/}
                         </tr>
                         )
                     )}
-                    <tr>
+                    <tr key="CourseInput">
                         {/*Industry*/}
                         <td>
                             <Form.Control
