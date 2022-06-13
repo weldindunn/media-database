@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { Form, Table, Button } from "react-bootstrap";
 import { Contact } from "../interfaces/contact";
-import contacts from "../data/contacts.json";
 import { EditContact } from "./editContact";
+import { SortButton } from "./sortButton";
+import contacts from "../data/contacts.json";
 
 const CONTACTS = contacts.map((contact): Contact => ({...contact}));
 
@@ -52,14 +53,38 @@ export function ViewContacts(): JSX.Element {
             <Table striped bordered hover responsive="sm">
                 <thead>
                     <tr>
-                        <th>Industry</th>
-                        <th>Organization</th>
-                        <th>Department</th>
-                        <th>Name</th>
+                        <th><SortButton
+                            columnTitle="Industry"
+                            contacts={contacts}
+                            setContacts={setContacts}
+                        ></SortButton></th>
+                        <th><SortButton
+                            columnTitle="Organization"
+                            contacts={contacts}
+                            setContacts={setContacts}
+                        ></SortButton></th>
+                        <th><SortButton
+                            columnTitle="Department"
+                            contacts={contacts}
+                            setContacts={setContacts}
+                        ></SortButton></th>
+                        <th><SortButton
+                            columnTitle="Name"
+                            contacts={contacts}
+                            setContacts={setContacts}
+                        ></SortButton></th>
                         <th>Phone Number</th>
                         <th>Email</th>
-                        <th>City</th>
-                        <th>State</th>
+                        <th><SortButton 
+                            columnTitle="City"
+                            contacts={contacts}
+                            setContacts={setContacts}
+                        ></SortButton></th>
+                        <th><SortButton 
+                            columnTitle="State"
+                            contacts={contacts}
+                            setContacts={setContacts}
+                        ></SortButton></th>
                         <th>Edit</th>
                         {/*<th>Address</th>*/}
                     </tr>
