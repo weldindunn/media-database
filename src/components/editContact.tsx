@@ -3,17 +3,11 @@ import { Form, Modal, Col, Row, Button } from "react-bootstrap";
 import  { Contact } from "../interfaces/contact";
 
 export function EditContact({
-    isEditing,
-    openModal,
-    closeModal,
     contact,
     contacts,
     setContacts
 
 }: {
-    isEditing: boolean;
-    openModal: () => void;
-    closeModal: () => void;
     contact: Contact;
     contacts: Contact[];
     setContacts: (contacts: Contact[]) => void;
@@ -27,6 +21,16 @@ export function EditContact({
     const [email, setEmail] = useState<string>(contact.email);
     const [city, setCity] = useState<string>(contact.city);
     const [state, setState] = useState<string>(contact.state);
+
+    const [isEditing, changeEditing] = useState<boolean>(false);
+
+    function openModal(): void {
+        changeEditing(true);
+    }
+
+    function closeModal(): void {
+        changeEditing(false);
+    }
 
     function save(): void {
         setContacts(contacts.map((targetContact: Contact): Contact => 
@@ -80,7 +84,6 @@ export function EditContact({
             >
                 <Modal.Header>
                     <Modal.Title>Edit Contact</Modal.Title>
-                    {contact.id}
                 </Modal.Header>
                 <Modal.Body>
                     {/* Industry */}

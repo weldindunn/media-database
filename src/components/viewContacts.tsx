@@ -18,16 +18,6 @@ export function ViewContacts(): JSX.Element {
     const [city, setCity] = useState<string>("");
     const [state, setState] = useState<string>("");
 
-    const [isEditing, changeEditing] = useState<boolean>(false);
-
-    function openModal(): void {
-        changeEditing(true);
-    }
-
-    function closeModal(): void {
-        changeEditing(false);
-    }
-
     function save(): void {
         setContacts(
             [...contacts, {
@@ -87,9 +77,6 @@ export function ViewContacts(): JSX.Element {
                             <td>{contact.state}</td>
                             <td>
                                 <EditContact
-                                    isEditing={isEditing}
-                                    openModal={openModal}
-                                    closeModal={closeModal}
                                     contact={contact}
                                     contacts={contacts}
                                     setContacts={setContacts}
