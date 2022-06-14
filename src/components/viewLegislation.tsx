@@ -69,7 +69,7 @@ export function ViewLegislation(): JSX.Element {
                                     <Dropdown.Menu>
                                         {
                                             leg.sponsors.map((sponsor: string) => (
-                                                <Dropdown.ItemText>
+                                                <Dropdown.ItemText key={sponsor}>
                                                     {sponsor}
                                                 </Dropdown.ItemText>
                                             ))
