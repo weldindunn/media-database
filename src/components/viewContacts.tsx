@@ -111,7 +111,7 @@ export function ViewContacts(): JSX.Element {
                         </tr>
                         )
                     )}
-                    <tr key="CourseInput">
+                    <tr key="ContactInput">
                         {/*Industry*/}
                         <td>
                             <Form.Control
