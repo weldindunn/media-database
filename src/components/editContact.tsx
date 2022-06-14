@@ -62,6 +62,7 @@ export function EditContact({
         closeModal();
     }
 
+    /*
     function reset(): void {
         setIndustry("");
         setOrganization("");
@@ -73,6 +74,7 @@ export function EditContact({
         setState("");
         closeModal();
     }
+    */
 
     return (
         <div>
