@@ -62,20 +62,6 @@ export function EditContact({
         closeModal();
     }
 
-    /*
-    function reset(): void {
-        setIndustry("");
-        setOrganization("");
-        setDepartment("");
-        setName("");
-        setPhoneNumber("");
-        setEmail("");
-        setCity("");
-        setState("");
-        closeModal();
-    }
-    */
-
     return (
         <div>
             <Button onClick={openModal}>Edit</Button>
