@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Button } from "react-bootstrap";
 import { Contact } from "../interfaces/contact";
 
@@ -12,57 +12,109 @@ export function SortButton({
     setContacts: (contacts: Contact[]) => void;
 }): JSX.Element {
 
-    //Helper to sort, swaps two values in an array
-    function swap(nodes: string[], i: number, j: number) {
-        const temp = nodes[i];
-        nodes[i] = nodes[j];
-        nodes[j] = temp;
+    //Industry
+    function compareIndustry (con1: Contact, con2: Contact) {
+        if (con1.industry.toUpperCase() > con2.industry.toUpperCase()) { return 1; }
+        if (con1.industry.toUpperCase() < con2.industry.toUpperCase()) { return -1; }
+        return 0;
     }
 
-    function partition(nodes: string[], low: number, high: number): number {
-        const pivot = nodes[high];
-        let i = (low - 1);
-
-        for (let j = low; j <= high - 1; j++) {
-            if (nodes[j] < pivot) {
-                i++;
-                swap(nodes, i, j);
-            }
-        }
-        swap(nodes, i+1, high);
-        return (i + 1);
+    function sortIndustries(): void {
+        const sorted = [...contacts].sort(compareIndustry)
+        setContacts(sorted);
     }
 
-    function quicksort(nodes: string[], low: number, high: number) {
-        if (low < high) {
-            const partIndex = partition(nodes, low, high);
-
-            //Sorts elements before and after partition
-            quicksort(nodes, low, partIndex - 1);
-            quicksort(nodes, partIndex + 1, high);
-        }
+    //Organization
+    function compareOrganization (con1: Contact, con2: Contact) {
+        if (con1.organization.toUpperCase() > con2.organization.toUpperCase()) { return 1; }
+        if (con1.organization.toUpperCase() < con2.organization.toUpperCase()) { return -1; }
+        return 0;
     }
 
-    function printArray(nodes: string[], size: number) {
-        for (let i = 0; i < size; i++) {
-            console.log(nodes[i] + ", ");
-        }
+    function sortOrganizations(): void {
+        const sorted = [...contacts].sort(compareOrganization)
+        setContacts(sorted);
+    }
+
+    //Department
+    function compareDepartment (con1: Contact, con2: Contact) {
+        if (con1.department.toUpperCase() > con2.department.toUpperCase()) { return 1; }
+        if (con1.department.toUpperCase() < con2.department.toUpperCase()) { return -1; }
+        return 0;
+    }
+
+    function sortDepartments(): void {
+        const sorted = [...contacts].sort(compareDepartment)
+        setContacts(sorted);
+    }
+
+    //Names
+    function compareName (con1: Contact, con2: Contact) {
+        if (con1.name.toUpperCase() > con2.name.toUpperCase()) { return 1; }
+        if (con1.name.toUpperCase() < con2.name.toUpperCase()) { return -1; }
+        return 0;
     }
 
     function sortNames(): void {
-        const names = contacts.map((contact: Contact): string => contact.name)
-        console.log("Original order: ");
-        printArray(names, contacts.length);
-        
-        quicksort(names, 0, contacts.length - 1);
-        console.log("Sorted by name: ");
-        printArray(names, contacts.length);
+        const sorted = [...contacts].sort(compareName)
+        setContacts(sorted);
+    }
+
+    //Cities
+    function compareCity (con1: Contact, con2: Contact) {
+        if (con1.city.toUpperCase() > con2.city.toUpperCase()) { return 1; }
+        if (con1.city.toUpperCase() < con2.city.toUpperCase()) { return -1; }
+        return 0;
+    }
+
+    function sortCities(): void {
+        const sorted = [...contacts].sort(compareCity)
+        setContacts(sorted);
+    }
+
+    //States
+    function compareState (con1: Contact, con2: Contact) {
+        if (con1.state.toUpperCase() > con2.state.toUpperCase()) { return 1; }
+        if (con1.state.toUpperCase() < con2.state.toUpperCase()) { return -1; }
+        return 0;
+    }
+
+    function sortStates(): void {
+        const sorted = [...contacts].sort(compareState)
+        setContacts(sorted);
     }
 
     return (
-        <div>
-            <span>{columnTitle}</span>
-            <Button onClick={sortNames}>Sort</Button>
-        </div>
+        columnTitle === "Industry" ? (
+            <div>
+                <span>{columnTitle}</span>
+                <Button onClick={sortIndustries}>Sort</Button>
+            </div>
+        ) : columnTitle === "Organization" ? (
+            <div>
+                <span>{columnTitle}</span>
+                <Button onClick={sortOrganizations}>Sort</Button>
+            </div>
+        ) : columnTitle === "Department" ? (
+            <div>
+                <span>{columnTitle}</span>
+                <Button onClick={sortDepartments}>Sort</Button>
+            </div>
+        ) : columnTitle === "Name" ? (
+            <div>
+                <span>{columnTitle}</span>
+                <Button onClick={sortNames}>Sort</Button>
+            </div>
+        ) : columnTitle === "City" ? (
+            <div>
+                <span>{columnTitle}</span>
+                <Button onClick={sortCities}>Sort</Button>
+            </div>
+        ) : columnTitle === "State" ? (
+            <div>
+                <span>{columnTitle}</span>
+                <Button onClick={sortStates}>Sort</Button>
+            </div>
+        ) : <div></div>
     )
 }
