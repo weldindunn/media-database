@@ -1,0 +1,20 @@
+[
+    {
+        "id": 1,
+        "title": "SB305",
+        "status": "House Natural Resources 6/10/22",
+        "lastUpdated": "6/14/22",
+        "sponsors": ["Hansen", "Heffernan", "Dorsey Walker", "S. Moore", "Gay", "S. McBride", "Sokola", "Sturgeon", "Townsend", "Baumbauch", "Bentz", "Chukwuocha", "Cooke", "Freel", "Griffith", "Kowalko", "Lambert", "Longhurst", "Lynn", "Matthews", "Minor-Brown", "Mitchell", "Morrison", "Osienski", "K. Williams", "Wilson-Anton"],
+        "summary": "Establishes a requirement of greenhouse gas emission reduction over the medium and long term to mitigate the effects of climate change",
+        "source": "https://legis.delaware.gov/json/BillDetail/GenerateHtmlDocument?legislationId=109575&legislationTypeId=1&docTypeId=2&legislationName=SB305"
+    },
+    {
+        "id": 2,
+        "title": "SB298",
+        "status": "House Natural Resources 6/2/22",
+        "lastUpdated": "6/14/22",
+        "sponsors": ["Hansen", "Griffith", "Baumbach", "Lopez", "Heffernan", "Osienski"],
+        "summary": "Amends provisions related to net energy metering by the Public Service Commission, municipal electric companies, and electric cooperatives",
+        "source": "https://legis.delaware.gov/json/BillDetail/GenerateHtmlDocument?legislationId=109520&legislationTypeId=1&docTypeId=2&legislationName=SB298"
+    }
+]
