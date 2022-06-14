@@ -86,35 +86,37 @@ export function SortButton({
 
     return (
         columnTitle === "Industry" ? (
-            <div>
+            <div style={{display:"flex"}}>
                 <span>{columnTitle}</span>
-                <Button onClick={sortIndustries}>Sort</Button>
+                <Button onClick={sortIndustries} variant="" size="sm">⇅</Button>
             </div>
         ) : columnTitle === "Organization" ? (
-            <div>
+            <div style={{display:"flex"}}>
                 <span>{columnTitle}</span>
-                <Button onClick={sortOrganizations}>Sort</Button>
+                <Button onClick={sortOrganizations} variant="" size="sm">⇅</Button>
             </div>
         ) : columnTitle === "Department" ? (
-            <div>
+            <div style={{display:"flex"}}>
                 <span>{columnTitle}</span>
-                <Button onClick={sortDepartments}>Sort</Button>
+                <Button onClick={sortDepartments} variant="" size="sm">⇅</Button>
             </div>
         ) : columnTitle === "Name" ? (
-            <div>
+            <div style={{display:"flex"}}>
                 <span>{columnTitle}</span>
-                <Button onClick={sortNames}>Sort</Button>
+                <Button onClick={sortNames} variant="" size="sm">⇅</Button>
             </div>
         ) : columnTitle === "City" ? (
-            <div>
+            <div style={{display:"flex"}}>
                 <span>{columnTitle}</span>
-                <Button onClick={sortCities}>Sort</Button>
+                <Button onClick={sortCities} variant="" size="sm">⇅</Button>
             </div>
         ) : columnTitle === "State" ? (
-            <div>
+            <div style={{display:"flex"}}>
                 <span>{columnTitle}</span>
-                <Button onClick={sortStates}>Sort</Button>
+                <Button onClick={sortStates} variant="" size="sm">⇅</Button>
             </div>
         ) : <div></div>
     )
+
+    //↓
 }
