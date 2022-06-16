@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Form, Modal, Col, Row, Button } from "react-bootstrap";
 import  { Contact } from "../interfaces/contact";
-import { DeleteContact } from "./deleteContact";
 
 export function EditContact({
     contact,
@@ -62,11 +61,17 @@ export function EditContact({
         setState(contact.state);
         closeModal();
     }
+
+    function remove(): void {
+        setContacts(contacts.filter((con: Contact): boolean => con.id !== contact.id))
+    }
     
     return (
         <div>
-            <Button onClick={openModal}>Edit</Button>
-            <DeleteContact contact={contact} contacts={contacts} setContacts={setContacts}></DeleteContact>
+            <div style={{display:"flex"}}>
+                <Button onClick={openModal}>Edit</Button>
+                <Button onClick={remove} variant="danger">✕</Button>
+            </div>
             <Modal
                 show={isEditing}
                 onHide={closeModal}
@@ -198,11 +203,17 @@ export function EditContact({
                     </Form.Group>
                 </Modal.Body>
                 <Modal.Footer>
-                    {/* Save Button */}
-                    <Button onClick={save} variant="success">Save</Button>
+                    <div style={{display:"flex", alignItems:"left"}}>
+                        {/* Delete Button */}
+                        <Button onClick={remove} variant="danger">Delete</Button>
+                    </div>
+                    <div style={{display:"flex", alignItems:"right"}}>
+                        {/* Save Button */}
+                        <Button onClick={save} variant="success">Save</Button>
 
-                    {/* Cancel Button */}
-                    <Button onClick={cancel} variant="warning">Cancel</Button>
+                        {/* Cancel Button */}
+                        <Button onClick={cancel} variant="warning">Cancel</Button>
+                    </div>
                 </Modal.Footer>
             </Modal>
         </div>
