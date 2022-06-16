@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Form, Modal, Col, Row, Button } from "react-bootstrap";
 import  { Contact } from "../interfaces/contact";
+import { DeleteContact } from "./deleteContact";
 
 export function EditContact({
     contact,
@@ -61,10 +62,11 @@ export function EditContact({
         setState(contact.state);
         closeModal();
     }
-
+    
     return (
         <div>
             <Button onClick={openModal}>Edit</Button>
+            <DeleteContact contact={contact} contacts={contacts} setContacts={setContacts}></DeleteContact>
             <Modal
                 show={isEditing}
                 onHide={closeModal}
