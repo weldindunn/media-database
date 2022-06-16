@@ -203,17 +203,14 @@ export function EditContact({
                     </Form.Group>
                 </Modal.Body>
                 <Modal.Footer>
-                    <div style={{display:"flex", alignItems:"left"}}>
-                        {/* Delete Button */}
-                        <Button onClick={remove} variant="danger">Delete</Button>
-                    </div>
-                    <div style={{display:"flex", alignItems:"right"}}>
-                        {/* Save Button */}
-                        <Button onClick={save} variant="success">Save</Button>
+                    {/* Delete Button */}
+                    <Button onClick={remove} variant="danger">Delete</Button>
 
-                        {/* Cancel Button */}
-                        <Button onClick={cancel} variant="warning">Cancel</Button>
-                    </div>
+                    {/* Save Button */}
+                    <Button onClick={save} variant="success">Save</Button>
+
+                    {/* Cancel Button */}
+                    <Button onClick={cancel} variant="warning">Cancel</Button>
                 </Modal.Footer>
             </Modal>
         </div>
