@@ -62,9 +62,16 @@ export function EditContact({
         closeModal();
     }
 
+    function remove(): void {
+        setContacts(contacts.filter((con: Contact): boolean => con.id !== contact.id))
+    }
+    
     return (
         <div>
-            <Button onClick={openModal}>Edit</Button>
+            <div style={{display:"flex"}}>
+                <Button onClick={openModal}>Edit</Button>
+                <Button onClick={remove} variant="danger">✕</Button>
+            </div>
             <Modal
                 show={isEditing}
                 onHide={closeModal}
@@ -196,6 +203,9 @@ export function EditContact({
                     </Form.Group>
                 </Modal.Body>
                 <Modal.Footer>
+                    {/* Delete Button */}
+                    <Button onClick={remove} variant="danger">Delete</Button>
+
                     {/* Save Button */}
                     <Button onClick={save} variant="success">Save</Button>
 

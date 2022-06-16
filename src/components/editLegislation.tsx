@@ -58,23 +58,16 @@ export function EditLegislation({
         closeModal();
     }
 
-    /*
-    function reset(): void {
-        setIndustry("");
-        setOrganization("");
-        setDepartment("");
-        setName("");
-        setPhoneNumber("");
-        setEmail("");
-        setCity("");
-        setState("");
-        closeModal();
+    function remove(): void {
+        setLegislation(legislation.filter((l: Legislation): boolean => l.id !== leg.id))
     }
-    */
 
     return (
         <div>
-            <Button onClick={openModal}>Edit</Button>
+            <div style={{display:"flex"}}>
+                <Button onClick={openModal}>Edit</Button>
+                <Button onClick={remove} variant="danger">✕</Button>
+            </div>
             <Modal
                 show={isEditing}
                 onHide={closeModal}
@@ -161,6 +154,9 @@ export function EditLegislation({
                     </Form.Group>
                 </Modal.Body>
                 <Modal.Footer>
+                    {/* Delete Button */}
+                    <Button onClick={remove} variant="danger">Delete</Button>
+
                     {/* Save Button */}
                     <Button onClick={save} variant="success">Save</Button>
 
