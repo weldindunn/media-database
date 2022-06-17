@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { Form, Table, Button } from "react-bootstrap";
-import { Contact } from "../interfaces/contact";
+import { Contact } from "../../interfaces/contact";
 import { EditContact } from "./editContact";
 import { SortButton } from "./sortButton";
 import { ContactHelpBar } from "./contactHelpBar";
-import contacts from "../data/contacts.json";
+import contacts from "../../data/contacts.json";
 
 const CONTACTS = contacts.map((contact): Contact => ({...contact}));
 

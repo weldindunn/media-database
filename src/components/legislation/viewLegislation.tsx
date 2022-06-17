@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Form, Table, Button, Dropdown } from "react-bootstrap";
-import { Legislation } from "../interfaces/legislation";
+import { Legislation } from "../../interfaces/legislation";
 import { EditLegislation } from "./editLegislation";
-import legislation from "../data/legislation.json";
+import legislation from "../../data/legislation.json";
 import { LegislationHelpBar } from "./legislationHelpBar";
 
 const LEGISLATION = legislation.map((legislation): Legislation => ({...legislation}));

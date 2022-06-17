@@ -1,9 +1,9 @@
 import React from "react";
 import { Tab, Nav } from "react-bootstrap";
 import { ViewHome } from "./viewHome";
-import { ViewContacts } from "./viewContacts";
+import { ViewContacts } from "./contacts/viewContacts";
 import { ViewMaps } from "./viewMaps";
-import { ViewLegislation } from "./viewLegislation";
+import { ViewLegislation } from "./legislation/viewLegislation";
 
 export function NavBar(): JSX.Element {
     return (
