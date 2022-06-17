@@ -3,6 +3,7 @@ import { Form, Table, Button } from "react-bootstrap";
 import { Contact } from "../interfaces/contact";
 import { EditContact } from "./editContact";
 import { SortButton } from "./sortButton";
+import { ContactHelpBar } from "./contactHelpBar";
 import contacts from "../data/contacts.json";
 
 const CONTACTS = contacts.map((contact): Contact => ({...contact}));
@@ -49,140 +50,143 @@ export function ViewContacts(): JSX.Element {
     }
 
     return (
-        <div className="contactTable">
-            <Table striped bordered hover responsive="sm">
-                <thead>
-                    <tr>
-                        <th><SortButton
-                            columnTitle="Industry"
-                            contacts={contacts}
-                            setContacts={setContacts}
-                        ></SortButton></th>
-                        <th><SortButton
-                            columnTitle="Organization"
-                            contacts={contacts}
-                            setContacts={setContacts}
-                        ></SortButton></th>
-                        <th><SortButton
-                            columnTitle="Department"
-                            contacts={contacts}
-                            setContacts={setContacts}
-                        ></SortButton></th>
-                        <th><SortButton
-                            columnTitle="Name"
-                            contacts={contacts}
-                            setContacts={setContacts}
-                        ></SortButton></th>
-                        <th>Phone Number</th>
-                        <th>Email</th>
-                        <th><SortButton 
-                            columnTitle="City"
-                            contacts={contacts}
-                            setContacts={setContacts}
-                        ></SortButton></th>
-                        <th><SortButton 
-                            columnTitle="State"
-                            contacts={contacts}
-                            setContacts={setContacts}
-                        ></SortButton></th>
-                        <th>Edit</th>
-                        {/*<th>Address</th>*/}
-                    </tr>
-                </thead>
-                <tbody>
-                    {contacts.map((contact: Contact) => (
-                        <tr key={contact.id}>
-                            <td>{contact.industry}</td>
-                            <td>{contact.organization}</td>
-                            <td>{contact.department}</td>
-                            <td>{contact.name}</td>
-                            <td>{contact.phone_number}</td>
-                            <td>{contact.email}</td>
-                            <td>{contact.city}</td>
-                            <td>{contact.state}</td>
-                            <td>
-                                <EditContact
-                                    contact={contact}
-                                    contacts={contacts}
-                                    setContacts={setContacts}
-                                ></EditContact>
-                            </td>
-                            {/*<td>{contact.address}{", "}{contact.city}{", "}{contact.state}</td>*/}
+        <>
+            <ContactHelpBar></ContactHelpBar>
+            <div className="contactTable">
+                <Table striped bordered hover responsive="sm">
+                    <thead>
+                        <tr>
+                            <th><SortButton
+                                columnTitle="Industry"
+                                contacts={contacts}
+                                setContacts={setContacts}
+                            ></SortButton></th>
+                            <th><SortButton
+                                columnTitle="Organization"
+                                contacts={contacts}
+                                setContacts={setContacts}
+                            ></SortButton></th>
+                            <th><SortButton
+                                columnTitle="Department"
+                                contacts={contacts}
+                                setContacts={setContacts}
+                            ></SortButton></th>
+                            <th><SortButton
+                                columnTitle="Name"
+                                contacts={contacts}
+                                setContacts={setContacts}
+                            ></SortButton></th>
+                            <th>Phone Number</th>
+                            <th>Email</th>
+                            <th><SortButton 
+                                columnTitle="City"
+                                contacts={contacts}
+                                setContacts={setContacts}
+                            ></SortButton></th>
+                            <th><SortButton 
+                                columnTitle="State"
+                                contacts={contacts}
+                                setContacts={setContacts}
+                            ></SortButton></th>
+                            <th>Edit</th>
+                            {/*<th>Address</th>*/}
                         </tr>
-                        )
-                    )}
-                    <tr key="ContactInput">
-                        {/*Industry*/}
-                        <td>
-                            <Form.Control
-                                value={industry}
-                                onChange={(event: React.ChangeEvent<HTMLInputElement>) => setIndustry(event.target.value)} 
-                                placeholder="Enter Industry"
-                            />
-                        </td>
-                        {/*Organization*/}
-                        <td>
-                            <Form.Control
-                                value={organization}
-                                onChange={(event: React.ChangeEvent<HTMLInputElement>) => setOrganization(event.target.value)} 
-                                placeholder="Enter Organization"
-                            />
-                        </td>
-                        {/*Department*/}
-                        <td>
-                            <Form.Control
-                                value={department}
-                                onChange={(event: React.ChangeEvent<HTMLInputElement>) => setDepartment(event.target.value)} 
-                                placeholder="Enter Department"
-                            />
-                        </td>
-                        {/*Name*/}
-                        <td>
-                            <Form.Control
-                                value={name}
-                                onChange={(event: React.ChangeEvent<HTMLInputElement>) => setName(event.target.value)} 
-                                placeholder="Enter Name"
-                            />
-                        </td>
-                        {/*Phone Number*/}
-                        <td>
-                            <Form.Control
-                                value={phoneNumber}
-                                onChange={(event: React.ChangeEvent<HTMLInputElement>) => setPhoneNumber(event.target.value)} 
-                                placeholder="Enter Phone Number"
-                            />
-                        </td>
-                        {/*Email*/}
-                        <td>
-                            <Form.Control
-                                value={email}
-                                onChange={(event: React.ChangeEvent<HTMLInputElement>) => setEmail(event.target.value)} 
-                                placeholder="Enter Email"
-                            />
-                        </td>
-                        {/*City*/}
-                        <td>
-                            <Form.Control
-                                value={city}
-                                onChange={(event: React.ChangeEvent<HTMLInputElement>) => setCity(event.target.value)} 
-                                placeholder="Enter City"
-                            />
-                        </td>
-                        {/*State*/}
-                        <td>
-                            <Form.Control
-                                value={state}
-                                onChange={(event: React.ChangeEvent<HTMLInputElement>) => setState(event.target.value)} 
-                                placeholder="Enter State"
-                            />
-                        </td>
-                        {/*Save*/}
-                        <td>
-                            <Button onClick={save}>Save</Button>
-                        </td>
-                    </tr>
-                </tbody>
-            </Table>
-        </div>
+                    </thead>
+                    <tbody>
+                        {contacts.map((contact: Contact) => (
+                            <tr key={contact.id}>
+                                <td>{contact.industry}</td>
+                                <td>{contact.organization}</td>
+                                <td>{contact.department}</td>
+                                <td>{contact.name}</td>
+                                <td>{contact.phone_number}</td>
+                                <td>{contact.email}</td>
+                                <td>{contact.city}</td>
+                                <td>{contact.state}</td>
+                                <td>
+                                    <EditContact
+                                        contact={contact}
+                                        contacts={contacts}
+                                        setContacts={setContacts}
+                                    ></EditContact>
+                                </td>
+                                {/*<td>{contact.address}{", "}{contact.city}{", "}{contact.state}</td>*/}
+                            </tr>
+                            )
+                        )}
+                        <tr key="ContactInput">
+                            {/*Industry*/}
+                            <td>
+                                <Form.Control
+                                    value={industry}
+                                    onChange={(event: React.ChangeEvent<HTMLInputElement>) => setIndustry(event.target.value)} 
+                                    placeholder="Enter Industry"
+                                />
+                            </td>
+                            {/*Organization*/}
+                            <td>
+                                <Form.Control
+                                    value={organization}
+                                    onChange={(event: React.ChangeEvent<HTMLInputElement>) => setOrganization(event.target.value)} 
+                                    placeholder="Enter Organization"
+                                />
+                            </td>
+                            {/*Department*/}
+                            <td>
+                                <Form.Control
+                                    value={department}
+                                    onChange={(event: React.ChangeEvent<HTMLInputElement>) => setDepartment(event.target.value)} 
+                                    placeholder="Enter Department"
+                                />
+                            </td>
+                            {/*Name*/}
+                            <td>
+                                <Form.Control
+                                    value={name}
+                                    onChange={(event: React.ChangeEvent<HTMLInputElement>) => setName(event.target.value)} 
+                                    placeholder="Enter Name"
+                                />
+                            </td>
+                            {/*Phone Number*/}
+                            <td>
+                                <Form.Control
+                                    value={phoneNumber}
+                                    onChange={(event: React.ChangeEvent<HTMLInputElement>) => setPhoneNumber(event.target.value)} 
+                                    placeholder="Enter Phone Number"
+                                />
+                            </td>
+                            {/*Email*/}
+                            <td>
+                                <Form.Control
+                                    value={email}
+                                    onChange={(event: React.ChangeEvent<HTMLInputElement>) => setEmail(event.target.value)} 
+                                    placeholder="Enter Email"
+                                />
+                            </td>
+                            {/*City*/}
+                            <td>
+                                <Form.Control
+                                    value={city}
+                                    onChange={(event: React.ChangeEvent<HTMLInputElement>) => setCity(event.target.value)} 
+                                    placeholder="Enter City"
+                                />
+                            </td>
+                            {/*State*/}
+                            <td>
+                                <Form.Control
+                                    value={state}
+                                    onChange={(event: React.ChangeEvent<HTMLInputElement>) => setState(event.target.value)} 
+                                    placeholder="Enter State"
+                                />
+                            </td>
+                            {/*Save*/}
+                            <td>
+                                <Button onClick={save}>Save</Button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </Table>
+            </div>
+        </>
     )
 }
