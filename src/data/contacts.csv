@@ -1,0 +1,4 @@
+﻿id, name, department, organization, industry, phone_number, email, address, city, state
+1,1,Weldin Dunn,Public Relations and Marketing,Delaware Electric Cooperative,Energy,302-349-3176,wdunn@delaware.coop,14198 Sussex Hwy,Greenwood,Delaware.
+2,2,Ben Galvacky,IT,Delaware Electric Cooperative,Energy,302-349-3158,bgalvacky@delaware.coop,14198 Sussex Hwy,Greenwood,Delaware.
+3,3,Joe Smith,Burger Flippin',McDonald's,Food Service,562-622-9248,,10207 Lakewood Boulevard,Downey,California.
