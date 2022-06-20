@@ -45,7 +45,7 @@ export function ViewLegislation(): JSX.Element {
         <>
             <LegislationHelpBar></LegislationHelpBar>
             <div className="legislationTable">
-                <Table striped bordered hover responsive="sm">
+                <Table striped bordered hover responsive>
                     <thead>
                         <tr>
                             <th>Title</th>

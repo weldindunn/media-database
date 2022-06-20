@@ -53,7 +53,7 @@ export function ViewContacts(): JSX.Element {
         <>
             <ContactHelpBar></ContactHelpBar>
             <div className="contactTable">
-                <Table striped bordered hover responsive="sm">
+                <Table striped bordered hover responsive>
                     <thead>
                         <tr>
                             <th><SortButton
