@@ -55,6 +55,19 @@ export function ContactHelpBar(): JSX.Element {
                             </span>
                         </Accordion.Body>
                     </Accordion.Item>
+                    <Accordion.Item eventKey="c5">
+                        <Accordion.Header>
+                            How can I save my data?
+                        </Accordion.Header>
+                        <Accordion.Body>
+                            <span>
+                                There is currently no saving through browsers, but you can export your data to a .CSV file. To do this, press
+                                the "Export to .CSV" button at the bottom of the page. This will download a .CSV file. You can then import
+                                this file later by pressing the "Import .CSV" button, selecting the file wherever you have it stored, and pressing
+                                the new "Import .CSV" button.
+                            </span>
+                        </Accordion.Body>
+                    </Accordion.Item>
                 </Accordion.Body>
             </Accordion>
         </div>
