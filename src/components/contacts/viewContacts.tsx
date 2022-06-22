@@ -4,8 +4,9 @@ import { Contact } from "../../interfaces/contact";
 import { EditContact } from "./editContact";
 import { SortButton } from "./sortButton";
 import { ExportContacts } from "./exportContacts";
-import contacts from "../../data/contacts.json";
 import { ImportContacts } from "./importContacts";
+import { ContactHelpBar } from "./contactHelpBar";
+import contacts from "../../data/contacts.json";
 
 const CONTACTS = contacts.map((contact): Contact => ({...contact}));
 
@@ -52,8 +53,9 @@ export function ViewContacts(): JSX.Element {
 
     return (
         <>
+            <ContactHelpBar></ContactHelpBar>
             <div className="contactTable">
-                <Table striped bordered hover responsive="sm">
+                <Table striped bordered hover responsive>
                     <thead>
                         <tr>
                             <th><SortButton
@@ -93,7 +95,6 @@ export function ViewContacts(): JSX.Element {
                         </tr>
                     </thead>
                     <tbody>
-
                         {/* Maps the contacts to parts of the table */}
                         {contacts.map((contact: Contact) => (
                             <tr key={contact.id}>
@@ -191,7 +192,6 @@ export function ViewContacts(): JSX.Element {
                     </tbody>
                 </Table>
             </div>
-
 
             {/* 
                 In the future, make this a bar always at the bottom of the screen 

@@ -4,6 +4,7 @@ import { Legislation } from "../../interfaces/legislation";
 import { EditLegislation } from "./editLegislation";
 import { ExportLegislation } from "./exportLegislation";
 import { ImportLegislation } from "./importLegislation";
+import { LegislationHelpBar } from "./legislationHelpBar";
 import legislation from "../../data/legislation.json";
 
 const LEGISLATION = legislation.map((legislation): Legislation => ({...legislation}));
@@ -44,8 +45,9 @@ export function ViewLegislation(): JSX.Element {
 
     return (
         <>
+            <LegislationHelpBar></LegislationHelpBar>
             <div className="legislationTable">
-                <Table striped bordered hover responsive="sm">
+                <Table striped bordered hover responsive>
                     <thead>
                         <tr>
                             <th>Title</th>
