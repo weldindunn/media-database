@@ -52,10 +52,6 @@ export function ViewContacts(): JSX.Element {
 
     return (
         <>
-            <div>
-                <ExportContacts contacts={contacts}></ExportContacts>
-                <ImportContacts setContacts={setContacts}></ImportContacts>
-            </div>
             <div className="contactTable">
                 <Table striped bordered hover responsive="sm">
                     <thead>
@@ -97,6 +93,8 @@ export function ViewContacts(): JSX.Element {
                         </tr>
                     </thead>
                     <tbody>
+
+                        {/* Maps the contacts to parts of the table */}
                         {contacts.map((contact: Contact) => (
                             <tr key={contact.id}>
                                 <td>{contact.industry}</td>
@@ -118,6 +116,8 @@ export function ViewContacts(): JSX.Element {
                             </tr>
                             )
                         )}
+
+                        {/* Creates input fields for the contacts */}
                         <tr key="ContactInput">
                             {/*Industry*/}
                             <td>
@@ -190,6 +190,16 @@ export function ViewContacts(): JSX.Element {
                         </tr>
                     </tbody>
                 </Table>
+            </div>
+
+
+            {/* 
+                In the future, make this a bar always at the bottom of the screen 
+                so no matter how long the table gets you can always import/export 
+            */}
+            <div className="import-export-interface">
+                <ExportContacts contacts={contacts}></ExportContacts>
+                <ImportContacts setContacts={setContacts}></ImportContacts>
             </div>
         </>
     )

@@ -8,11 +8,9 @@ export function ExportContacts({
     contacts: Contact[];
 }): JSX.Element {
     const exportCSV = () => {
-        let str =
-            "id, name, department, organization, industry, phone_number, email, address, city, state.\n";
+        let str = "";
         for (let i = 0; i < contacts.length; i++) {
             const data = contacts[i];
-            str += i + 1 + ",";
             str += data.id + ",";
             str += data.name + ",";
             str += data.department + ",";
@@ -22,7 +20,7 @@ export function ExportContacts({
             str += data.email + ",";
             str += data.address + ",";
             str += data.city + ",";
-            str += data.state + ".";
+            str += data.state;
             str += "\n";
         }
 
@@ -38,7 +36,7 @@ export function ExportContacts({
 
     return (
         <div>
-            <Button onClick={exportCSV}>Export to CSV</Button>
+            <Button onClick={exportCSV} variant="outline-success">Export to .CSV</Button>
         </div>
     )
 }
