@@ -2,8 +2,10 @@ import React, { useState } from "react";
 import { Form, Table, Button, Dropdown } from "react-bootstrap";
 import { Legislation } from "../../interfaces/legislation";
 import { EditLegislation } from "./editLegislation";
-import legislation from "../../data/legislation.json";
+import { ExportLegislation } from "./exportLegislation";
+import { ImportLegislation } from "./importLegislation";
 import { LegislationHelpBar } from "./legislationHelpBar";
+import legislation from "../../data/legislation.json";
 
 const LEGISLATION = legislation.map((legislation): Legislation => ({...legislation}));
 
@@ -148,6 +150,10 @@ export function ViewLegislation(): JSX.Element {
                         </tr>
                     </tbody>
                 </Table>
+            </div>
+            <div className="import-export-interface">
+                <ExportLegislation legislation={legislation}></ExportLegislation>
+                <ImportLegislation setLegislation={setLegislation}></ImportLegislation>
             </div>
         </>
     )

@@ -3,6 +3,8 @@ import { Form, Table, Button } from "react-bootstrap";
 import { Contact } from "../../interfaces/contact";
 import { EditContact } from "./editContact";
 import { SortButton } from "./sortButton";
+import { ExportContacts } from "./exportContacts";
+import { ImportContacts } from "./importContacts";
 import { ContactHelpBar } from "./contactHelpBar";
 import contacts from "../../data/contacts.json";
 
@@ -93,6 +95,7 @@ export function ViewContacts(): JSX.Element {
                         </tr>
                     </thead>
                     <tbody>
+                        {/* Maps the contacts to parts of the table */}
                         {contacts.map((contact: Contact) => (
                             <tr key={contact.id}>
                                 <td>{contact.industry}</td>
@@ -114,6 +117,8 @@ export function ViewContacts(): JSX.Element {
                             </tr>
                             )
                         )}
+
+                        {/* Creates input fields for the contacts */}
                         <tr key="ContactInput">
                             {/*Industry*/}
                             <td>
@@ -186,6 +191,15 @@ export function ViewContacts(): JSX.Element {
                         </tr>
                     </tbody>
                 </Table>
+            </div>
+
+            {/* 
+                In the future, make this a bar always at the bottom of the screen 
+                so no matter how long the table gets you can always import/export 
+            */}
+            <div className="import-export-interface">
+                <ExportContacts contacts={contacts}></ExportContacts>
+                <ImportContacts setContacts={setContacts}></ImportContacts>
             </div>
         </>
     )

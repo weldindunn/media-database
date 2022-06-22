@@ -56,3 +56,17 @@
   padding: 15px;
   text-align: left;
 }
+
+.import-export-interface {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.import-interface {
+  display: inline-block;
+  align-items: center;
+  margin-left: 8px;
+}

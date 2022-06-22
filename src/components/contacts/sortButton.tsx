@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Button } from "react-bootstrap";
 import { Contact } from "../../interfaces/contact";
 
@@ -11,6 +11,13 @@ export function SortButton({
     contacts: Contact[];
     setContacts: (contacts: Contact[]) => void;
 }): JSX.Element {
+
+    const [industrySorted, setIndustrySorted] = useState<boolean>(false);
+    const [organizationSorted, setOrganizationSorted] = useState<boolean>(false);
+    const [departmentSorted, setDepartmentSorted] = useState<boolean>(false);
+    const [nameSorted, setNameSorted] = useState<boolean>(false);
+    const [citySorted, setCitySorted] = useState<boolean>(false);
+    const [stateSorted, setStateSorted] = useState<boolean>(false);
 
     //Industry
     function compareIndustry (con1: Contact, con2: Contact) {
@@ -117,6 +124,4 @@ export function SortButton({
             </div>
         ) : <div></div>
     )
-
-    //↓
 }
