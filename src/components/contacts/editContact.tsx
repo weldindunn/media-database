@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Form, Modal, Col, Row, Button } from "react-bootstrap";
-import  { Contact } from "../interfaces/contact";
+import  { Contact } from "../../interfaces/contact";
 
 export function EditContact({
     contact,

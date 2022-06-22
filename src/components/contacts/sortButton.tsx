@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Button } from "react-bootstrap";
-import { Contact } from "../interfaces/contact";
+import { Contact } from "../../interfaces/contact";
 
 export function SortButton({
     columnTitle,

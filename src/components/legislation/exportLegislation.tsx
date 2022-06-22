@@ -1,26 +1,23 @@
 import React from "react";
 import { Button } from "react-bootstrap";
-import { Contact } from "../interfaces/contact";
+import { Legislation } from "../../interfaces/legislation";
 
-export function ExportContacts({
-    contacts
+export function ExportLegislation({
+    legislation
 } : {
-    contacts: Contact[];
+    legislation: Legislation[];
 }): JSX.Element {
     const exportCSV = () => {
         let str = "";
-        for (let i = 0; i < contacts.length; i++) {
-            const data = contacts[i];
+        for (let i = 0; i < legislation.length; i++) {
+            const data = legislation[i];
             str += data.id + ",";
-            str += data.name + ",";
-            str += data.department + ",";
-            str += data.organization + ",";
-            str += data.industry + ",";
-            str += data.phone_number + ",";
-            str += data.email + ",";
-            str += data.address + ",";
-            str += data.city + ",";
-            str += data.state;
+            str += data.title + ",";
+            str += data.status + ",";
+            str += data.lastUpdated + ",";
+            str += data.sponsors.join("&") + ",";
+            str += data.summary + ",";
+            str += data.source;
             str += "\n";
         }
 
@@ -28,7 +25,7 @@ export function ExportContacts({
             "data:text/csv;charaset=utf-8,\ufeff" + encodeURIComponent(str);
         const link = document.createElement("a");
         link.href = uri;
-        link.download = "contacts";
+        link.download = "legislation";
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);

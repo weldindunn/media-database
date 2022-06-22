@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Button, Form } from "react-bootstrap";
-import { Contact } from "../interfaces/contact";
+import { Contact } from "../../interfaces/contact";
 
 export function ImportContacts({
     setContacts

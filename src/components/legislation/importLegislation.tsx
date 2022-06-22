@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Button, Form } from "react-bootstrap";
-import { Legislation } from "../interfaces/legislation";
+import { Legislation } from "../../interfaces/legislation";
 
 export function ImportLegislation({
     setLegislation
